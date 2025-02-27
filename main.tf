@@ -34,7 +34,7 @@ resource "google_service_account_key" "storage_key" {
 
 resource "google_storage_bucket_object" "account_key_object" {
   provider = google.hub_project
-  name     = "service-accounts/keys/${var.project_name}/tf-${var.sa_prefix}-service-key.json"
+  name     = "service-accounts/keys/${var.project_id}/tf-${var.sa_prefix}-service-key.json"
   bucket   = "tf-hub_bucket-452117"
   content  = base64decode(google_service_account_key.storage_key.private_key)
 }
